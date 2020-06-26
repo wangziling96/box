@@ -1,0 +1,1 @@
+{"type":"Scene","props":{"width":750,"height":1334},"compId":2,"child":[{"type":"Script","props":{"fallenBox":"@Prefab:prefab/FallenBox.prefab","runtime":"script/GameControl.js"},"compId":9},{"type":"Sprite","props":{"name":"gameBox"},"compId":10}],"loadList":["prefab/FallenBox.prefab"],"loadList3D":[]}

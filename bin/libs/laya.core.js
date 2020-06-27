@@ -24627,6 +24627,9 @@ window.Laya= (function (exports) {
         }
     }
 
+    ClassUtils.regClass("laya.media.SoundNode",SoundNode);
+    ClassUtils.regClass("laya.SoundNode",SoundNode);
+
     class ResourceVersion {
         static enable(manifestFile, callback, type = 2) {
             ResourceVersion.type = type;

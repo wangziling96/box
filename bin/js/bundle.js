@@ -73,6 +73,30 @@
         }
     }
 
+    class Bullet extends Laya.Script{
+        constructor(){
+            super();
+        }
+
+        onEnable(){
+
+        }
+
+        onTriggerEnter(){
+            this.owner.removeSelf();
+        }
+
+        onUpdate(){
+            if(this.owner.y < -10){
+                this.owner.removeSelf();
+            }
+        }
+
+        onDisable(){
+            Laya.Pool.recover("bullet",this.owner);
+        }
+    }
+
     class FallenBox extends Laya.Script {
 
         constructor() { 
@@ -95,6 +119,7 @@
                     this.level --;
                     this._text.changeText(this.level + "");
                     this.owner.getChildByName("hit").play();
+                    this.owner.getComponent(Laya.RigidBody).linearVelocity = {x:0,y:-10};
                 }else{
                     if(this.owner.parent){
                         this.owner.removeSelf();
@@ -121,6 +146,7 @@
             let reg = Laya.ClassUtils.regClass;
     		reg("runtime/GameMain.js",GameMain);
     		reg("script/GameControl.js",GameControl);
+    		reg("script/Bullet.js",Bullet);
     		reg("script/FallenBox.js",FallenBox);
         }
     }

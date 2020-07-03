@@ -1,0 +1,1 @@
+{"type":"Animation","props":{"y":0,"x":0,"source":"ani/Boxburst.ani","presetID":1,"isPresetRoot":true},"compId":19,"child":[{"type":"Script","props":{"presetID":2,"runtime":"script/BoxBurstAni.js"},"compId":20}],"loadList":["ani/Boxburst.ani"],"loadList3D":[]}

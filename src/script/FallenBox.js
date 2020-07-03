@@ -1,5 +1,5 @@
 export default class FallenBox extends Laya.Script {
-
+    /** @prop {name:boxBurst,tips:"盒子爆炸动画",type:Prefab}*/
     constructor() { 
         super(); 
     }
@@ -23,6 +23,10 @@ export default class FallenBox extends Laya.Script {
                 this.owner.getComponent(Laya.RigidBody).linearVelocity = {x:0,y:-10};
             }else{
                 if(this.owner.parent){
+                    let _boxBurstAni = Laya.Pool.getItemByCreateFun("boxBurst",this.boxBurst.create,this.boxBurst);
+                    _boxBurstAni.pos(this.owner.x,this.owner.y);
+                    this.owner.parent.addChild(_boxBurstAni);
+                    _boxBurstAni.play();
                     this.owner.removeSelf();
                     this.owner.getChildByName("destroy").play();
                 }

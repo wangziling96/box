@@ -10,7 +10,7 @@ export default class GameControl extends Laya.Script {
         this._started = false;
         this._gameBox = this.owner.getChildByName("gameBox");
         this._time = Date.now();
-        
+        this._createBoxInterVal = this.createBoxInteral;
     }
 
     onStart(){
@@ -44,6 +44,13 @@ export default class GameControl extends Laya.Script {
         if(!this._started){
             this._started = true;
         }
+    }
+
+    stopGame(){
+        this._started = false;
+        this._gameBox.removeChildren();
+        
+        this.createBoxInteral = this._createBoxInteral;
     }
 
     onDisable() {

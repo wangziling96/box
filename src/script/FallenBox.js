@@ -1,3 +1,5 @@
+import GameMain from "../runtime/GameMain";
+
 export default class FallenBox extends Laya.Script {
     /** @prop {name:boxBurst,tips:"盒子爆炸动画",type:Prefab}*/
     constructor() { 
@@ -31,10 +33,11 @@ export default class FallenBox extends Laya.Script {
                     this.owner.getChildByName("destroy").play();
                 }
             }
+            GameMain.instance.addScore();
 
         }else if(other.label == "ground"){
             this.owner.removeSelf();
-            console.log("box --- ground");
+            GameMain.instance.stopGame();
         }
     }
 

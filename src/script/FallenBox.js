@@ -20,6 +20,7 @@ export default class FallenBox extends Laya.Script {
                 this.level --;
                 this._text.changeText(this.level + "");
                 this.owner.getChildByName("hit").play();
+                this.owner.getComponent(Laya.RigidBody).linearVelocity = {x:0,y:-10};
             }else{
                 if(this.owner.parent){
                     this.owner.removeSelf();
